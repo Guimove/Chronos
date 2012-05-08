@@ -1,0 +1,10 @@
+weather_index:
+    pattern:  /
+    defaults: { _controller: "ChronosChronoAdminBundle:Weather:index" }
+
+weather_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ChronosChronoAdminBundle:Weather:show" }
+
+
+

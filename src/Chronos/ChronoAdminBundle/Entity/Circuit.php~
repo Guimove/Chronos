@@ -1,0 +1,193 @@
+<?php
+
+namespace Chronos\ChronoAdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="circuit")
+ */
+class Circuit
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $length;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $country;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Chrono", mappedBy="circuit")
+     */
+    protected $chronos;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     */
+    protected $picture_name;
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    public $file;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $path;
+
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->path ? null : $this->getUploadDir() . '/' . $this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
+        return 'uploads/images';
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set length
+     *
+     * @param integer $length
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+    }
+
+    /**
+     * Get length
+     *
+     * @return integer
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    public function __construct()
+    {
+        $this->chronos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add chronos
+     *
+     * @param Chronos\ChronoAdminBundle\Entity\Chrono $chronos
+     */
+    public function addChrono(\Chronos\ChronoAdminBundle\Entity\Chrono $chronos)
+    {
+        $this->chronos[] = $chronos;
+    }
+
+    /**
+     * Get chronos
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getChronos()
+    {
+        return $this->chronos;
+    }
+}

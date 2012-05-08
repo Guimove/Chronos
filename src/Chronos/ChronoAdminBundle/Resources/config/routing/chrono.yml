@@ -1,0 +1,30 @@
+chrono_index:
+    pattern:  /
+    defaults: { _controller: "ChronosChronoAdminBundle:Chrono:index" }
+
+chrono_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ChronosChronoAdminBundle:Chrono:show" }
+
+chrono_new:
+    pattern:  /new
+    defaults: { _controller: "ChronosChronoAdminBundle:Chrono:new" }
+
+chrono_create:
+    pattern:  /create
+    defaults: { _controller: "ChronosChronoAdminBundle:Chrono:create" }
+    requirements: { _method: post }
+
+chrono_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ChronosChronoAdminBundle:Chrono:edit" }
+
+chrono_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ChronosChronoAdminBundle:Chrono:update" }
+    requirements: { _method: post }
+
+chrono_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ChronosChronoAdminBundle:Chrono:delete" }
+    requirements: { _method: post }

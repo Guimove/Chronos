@@ -1,0 +1,7 @@
+/**
+ * Overrides some rules defined in third-party libraries CSS files
+ */
+
+.sidebar-nav {
+    padding: 9px 0;
+}

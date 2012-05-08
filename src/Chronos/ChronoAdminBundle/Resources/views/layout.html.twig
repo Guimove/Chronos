@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block content_title '' %} | Chronos</title>
+
+    {% block stylesheets %}
+    {% stylesheets
+                    'bundles/chronoschronoadmin/css/third-party/normalize.css'
+                    'bundles/chronoschronoadmin/css/third-party/bootstrap.min.css'
+                    'bundles/chronoschronoadmin/css/third-party/bootstrap-responsive.min.css'
+                    'bundles/chronoschronoadmin/css/librariesOverrides.css'
+                    'bundles/chronoschronoadmin/css/style.css'
+                    output='css/chrono.css'
+                    filter='cssrewrite'
+                    combine=true
+    %}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="screen" />
+    {% endstylesheets %}
+    {% endblock %}
+
+    {% block head_javascripts %}
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="{{ asset('bundles/chronoschronoadmin/js/third-party/html5-ie.js') }}"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{{ asset('bundles/chronoschronoadmin/js/third-party/jquery-1.7.2.min.js') }}"></script>
+    {% endblock %}
+    {% block javascripts %}
+    {% javascripts
+                    'bundles/chronoschronoadmin/js/third-party/jquery-ui-1.8.20.min.js'
+                    'bundles/chronoschronoadmin/js/third-party/bootstrap.min.js'
+                    'bundles/chronoschronoadmin/js/main.js'
+                    output='js/chrono.js'
+                    combine=true
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% endblock %}
+</head>
+<body>
+
+{% block body %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a href="#" class="brand">Chronos</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="{{ path('homepage') }}">Home</a></li>
+                </ul>
+                <p class="navbar-text pull-right">Logged in as Administrator - <a href="/logout">Logout</a></p>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Gestion circuits</li>
+                    <li><a href="{{ path('circuit_index') }}">Liste des circuits</a></li>
+                    <li><a href="{{ path('circuit_new') }}">Ajouter un circuit</a></li>
+                    <li class="nav-header">Gestion Chronos</li>
+                    <li><a href="{{ path('chrono_index') }}">Liste des chronos</a></li>
+                    <li><a href="{{ path('chrono_new') }}">Ajouter un chrono</a></li>
+
+                </ul>
+            </div>
+            <!--/.well -->
+        </div>
+        <!--/span-->
+        <div class="span9">
+            {% block sub_content %}{% endblock %}
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+    <hr />
+    <footer>
+        <p>&copy; Guimove</p>
+    </footer>
+</div>
+{% endblock %}

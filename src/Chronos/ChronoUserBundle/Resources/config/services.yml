@@ -1,0 +1,7 @@
+parameters:
+#    chronos_chrono_user.example.class: Chronos\ChronoUserBundle\Example
+
+services:
+#    chronos_chrono_user.example:
+#        class: %chronos_chrono_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

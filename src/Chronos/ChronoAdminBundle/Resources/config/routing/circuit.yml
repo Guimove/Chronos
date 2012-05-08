@@ -1,0 +1,30 @@
+circuit_index:
+    pattern:  /
+    defaults: { _controller: "ChronosChronoAdminBundle:Circuit:index" }
+
+circuit_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ChronosChronoAdminBundle:Circuit:show" }
+
+circuit_new:
+    pattern:  /new
+    defaults: { _controller: "ChronosChronoAdminBundle:Circuit:new" }
+
+circuit_create:
+    pattern:  /create
+    defaults: { _controller: "ChronosChronoAdminBundle:Circuit:create" }
+    requirements: { _method: post }
+
+circuit_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ChronosChronoAdminBundle:Circuit:edit" }
+
+circuit_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ChronosChronoAdminBundle:Circuit:update" }
+    requirements: { _method: post }
+
+circuit_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ChronosChronoAdminBundle:Circuit:delete" }
+    requirements: { _method: post }

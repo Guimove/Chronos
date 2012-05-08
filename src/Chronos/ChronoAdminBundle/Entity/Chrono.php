@@ -1,0 +1,206 @@
+<?php
+
+namespace Chronos\ChronoAdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="chrono")
+ */
+class Chrono
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $time;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $bike;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $comment;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Circuit", inversedBy="chronos")
+     * @ORM\JoinColumn(name="circuit_id", referencedColumnName="id")
+     */
+    protected $circuit;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Weather", inversedBy="chronos")
+     * @ORM\JoinColumn(name="weather_id", referencedColumnName="id")
+     */
+    protected $weather;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $user;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set time
+     *
+     * @param integer $time
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * Get time
+     *
+     * @return integer
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * Set bike
+     *
+     * @param string $bike
+     */
+    public function setBike($bike)
+    {
+        $this->bike = $bike;
+    }
+
+    /**
+     * Get bike
+     *
+     * @return string
+     */
+    public function getBike()
+    {
+        return $this->bike;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Set date
+     *
+     * @param datetime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * Get date
+     *
+     * @return datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set user
+     *
+     * @param string $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set circuit
+     *
+     * @param Chronos\ChronoAdminBundle\Entity\Circuit $circuit
+     */
+    public function setCircuit(\Chronos\ChronoAdminBundle\Entity\Circuit $circuit)
+    {
+        $this->circuit = $circuit;
+    }
+
+    /**
+     * Get circuit
+     *
+     * @return Chronos\ChronoAdminBundle\Entity\Circuit
+     */
+    public function getCircuit()
+    {
+        return $this->circuit;
+    }
+
+    /**
+     * Set weather
+     *
+     * @param Chronos\ChronoAdminBundle\Entity\Weather $weather
+     */
+    public function setWeather(\Chronos\ChronoAdminBundle\Entity\Weather $weather)
+    {
+        $this->weather = $weather;
+    }
+
+    /**
+     * Get weather
+     *
+     * @return Chronos\ChronoAdminBundle\Entity\Weather
+     */
+    public function getWeather()
+    {
+        return $this->weather;
+    }
+}

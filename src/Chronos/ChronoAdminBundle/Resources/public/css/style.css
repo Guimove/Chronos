@@ -1,0 +1,8 @@
+/**
+ * Manages common CSS rules (for example, rules defined for the header, general-content and footer)
+ */
+
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
