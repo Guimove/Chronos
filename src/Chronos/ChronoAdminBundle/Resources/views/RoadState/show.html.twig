@@ -1,8 +1,8 @@
 {% extends "ChronosChronoAdminBundle::layout.html.twig" %}
 
-{% block content_title %}Weather {% endblock %}
+{% block content_title %}RoadState {% endblock %}
 
-{% block home_title %}Weather {% endblock %}
+{% block home_title %}RoadState {% endblock %}
 
 {% block sub_content %}
 
@@ -20,16 +20,16 @@
 </table>
 
 <div class="record_actions form-actions span8">
-        <a href="{{ path('weather_index') }}" class="btn">
+        <a href="{{ path('roadstate') }}" class="btn">
             <i class="icon-list"></i>
             Back to the list
         </a>
-        <a href="{{ path('weather_edit', { 'id': entity.id }) }}" class="btn">
+        <a href="{{ path('roadstate_edit', { 'id': entity.id }) }}" class="btn">
             <i class="icon-pencil"></i>
             Edit
         </a>
 
-        <form action="{{ path('weather_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('roadstate_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit" class="btn btn-danger"><i class="icon-fire icon-white"></i>
                 Delete

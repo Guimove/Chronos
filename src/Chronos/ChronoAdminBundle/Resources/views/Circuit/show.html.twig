@@ -2,8 +2,10 @@
 
 {% block content_title %}Circuit {% endblock %}
 
+{% block home_title %}Circuit {% endblock %}
+
 {% block sub_content %}
-<table class="record_properties">
+<table class="record_properties span4">
     <tbody>
         <tr>
             <th>Id</th>
@@ -23,27 +25,26 @@
         </tr>
         <tr>
             <th>Picture</th>
-            <td><img src="/symfony/web/uploads/images/{{ entity.id }}.{{ entity.path }}" width="150px"/></td>
+            <td><img src="{{ asset(entity.path) }}" width="150px"/></td>
         </tr>
     </tbody>
 </table>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('circuit_index') }}">
+<div class="record_actions form-actions span8">
+        <a href="{{ path('circuit_index') }}" class="btn">
+            <i class="icon-list"></i>
             Back to the list
         </a>
-    </li>
-    <li>
-        <a href="{{ path('circuit_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('circuit_edit', { 'id': entity.id }) }}" class="btn">
+            <i class="icon-pencil"></i>
             Edit
         </a>
-    </li>
-    <li>
+
         <form action="{{ path('circuit_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn btn-danger"><i class="icon-fire icon-white"></i>
+                Delete
+            </button>
         </form>
-    </li>
-</ul>
+</div>
 {% endblock %}

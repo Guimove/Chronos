@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="weather")
+ * @ORM\Table(name="roadstate")
  */
-class Weather
+class RoadState
 {
     /**
      * @ORM\Id
@@ -23,19 +23,18 @@ class Weather
     protected $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Chrono", mappedBy="weather")
+     * @ORM\OneToMany(targetEntity="Chrono", mappedBy="roadstate")
      */
     protected $chronos;
-
     public function __construct()
     {
         $this->chronos = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -55,7 +54,7 @@ class Weather
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {
@@ -75,15 +74,10 @@ class Weather
     /**
      * Get chronos
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return Doctrine\Common\Collections\Collection 
      */
     public function getChronos()
     {
         return $this->chronos;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }

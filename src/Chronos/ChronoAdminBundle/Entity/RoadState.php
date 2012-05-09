@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="weather")
+ * @ORM\Table(name="roadstate")
  */
-class Weather
+class RoadState
 {
     /**
      * @ORM\Id
@@ -23,10 +23,9 @@ class Weather
     protected $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Chrono", mappedBy="weather")
+     * @ORM\OneToMany(targetEntity="Chrono", mappedBy="roadstate")
      */
     protected $chronos;
-
     public function __construct()
     {
         $this->chronos = new \Doctrine\Common\Collections\ArrayCollection();

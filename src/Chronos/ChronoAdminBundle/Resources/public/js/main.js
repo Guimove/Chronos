@@ -3,4 +3,5 @@ $(document).ready(function () {
         dateFormat: 'dd/mm/yy',
         firstDay: 1
     }).attr("readonly", "readonly")
+    $('[rel=tooltip]').tooltip()
 });

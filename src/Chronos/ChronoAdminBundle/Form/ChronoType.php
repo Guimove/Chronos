@@ -22,7 +22,8 @@ class ChronoType extends AbstractType
                 )
             ->add('user')
             ->add('circuit')
-            ->add('weather');
+            ->add('weather')
+            ->add('roadstate');
     }
 
     public function getName()

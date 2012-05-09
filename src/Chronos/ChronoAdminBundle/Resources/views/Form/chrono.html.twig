@@ -1,0 +1,40 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block field_widget %}
+{% spaceless %}
+{% set type = type|default('text') %}
+<input type="{{ type }}" {{ block('widget_attributes') }} value="{{- value -}}" />
+{% endspaceless %}
+{% endblock field_widget %}
+
+{% block field_label %}
+<label for="{{ id }}" class="control-label">{{- label -}}</label>
+{% endblock field_label %}
+
+{% block generic_label %}
+{% spaceless %}
+{% if required %}
+{% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
+{% endif %}
+{% if attr is empty %}
+{% set attr = {'class': 'control-label'} %}
+{% endif %}
+<label {% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{- label|trans -}}</label>
+{% endspaceless %}
+{% endblock %}
+
+{% block field_row %}
+{% spaceless %}
+<div class="control-group {% if form_errors(form) %}error{% endif %}">
+    {{ form_label(form) }}
+    <div class="controls">
+        {{ form_widget(form) }}
+    </div>
+    {% if form.vars.errors is not empty %}
+    <div class="errors">
+        {{ form_errors(form) }}
+    </div>
+    {% endif %}
+</div>
+{% endspaceless %}
+{% endblock field_row %}

@@ -1,0 +1,35 @@
+{% extends "ChronosChronoAdminBundle::layout.html.twig" %}
+
+{% block content_title %}RoadState List{% endblock %}
+
+{% block home_title %}RoadState List{% endblock %}
+
+{% block sub_content %}
+
+<a href="{{ path('roadstate_new') }}" class="btn">
+    <i class="icon-plus"></i>
+    Create a new entry
+</a>
+<hr>
+<table class="records_list table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+    <tr>
+        <td><a href="{{ path('roadstate_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+        <td>{{ entity.name }}</td>
+        <td>
+            <a rel="tooltip" title="Show entry" href="{{ path('roadstate_show', { 'id': entity.id }) }}"><i class="icon-search"></i></a>
+            <a rel="tooltip" title="Edit entry" href="{{ path('roadstate_edit', { 'id': entity.id }) }}"><i class="icon-pencil"></i></a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

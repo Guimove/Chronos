@@ -13,3 +13,7 @@ ChronosChronoAdminBundle_chrono:
 ChronosChronoAdminBundle_weather:
     resource: "@ChronosChronoAdminBundle/Resources/config/routing/weather.yml"
     prefix:   /weather
+
+ChronosChronoAdminBundle_roadstate:
+    resource: "@ChronosChronoAdminBundle/Resources/config/routing/roadstate.yml"
+    prefix:   /roadstate

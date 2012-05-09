@@ -75,12 +75,18 @@
                     <li class="nav-header">Gestion Météo</li>
                     <li><a href="{{ path('weather_index') }}">Liste de type de météo</a></li>
                     <li><a href="{{ path('weather_new') }}">Ajouter un type de météo</a></li>
+                    <li class="nav-header">Gestion Etat de la Piste</li>
+                    <li><a href="{{ path('roadstate') }}">Liste des états de piste</a></li>
+                    <li><a href="{{ path('roadstate_new') }}">Ajouter un état de piste</a></li>
                 </ul>
             </div>
             <!--/.well -->
         </div>
         <!--/span-->
         <div class="span9">
+            <div class="page-header">
+                <h1>{% block home_title 'Home' %}</h1>
+            </div>
             {% block sub_content %}{% endblock %}
         </div>
         <!--/span-->
@@ -88,7 +94,7 @@
     <!--/row-->
     <hr />
     <footer>
-        <p>&copy; Guimove</p>
+        <p>&copy; {{ 'now'|date("Y") }} - Guimove</p>
     </footer>
 </div>
 {% endblock %}

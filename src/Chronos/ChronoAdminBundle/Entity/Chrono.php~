@@ -18,7 +18,7 @@ class Chrono
     protected $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     protected $time;
 
@@ -33,7 +33,7 @@ class Chrono
     protected $comment;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     protected $date;
 
@@ -50,6 +50,12 @@ class Chrono
     protected $weather;
 
     /**
+     * @ORM\ManyToOne(targetEntity="RoadState", inversedBy="chronos")
+     * @ORM\JoinColumn(name="raodstate_id", referencedColumnName="id")
+     */
+    protected $raodstate;
+
+    /**
      * @ORM\Column(type="string")
      */
     protected $user;
@@ -57,7 +63,7 @@ class Chrono
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +83,7 @@ class Chrono
     /**
      * Get time
      *
-     * @return integer 
+     * @return integer
      */
     public function getTime()
     {
@@ -97,7 +103,7 @@ class Chrono
     /**
      * Get bike
      *
-     * @return string 
+     * @return string
      */
     public function getBike()
     {
@@ -117,7 +123,7 @@ class Chrono
     /**
      * Get comment
      *
-     * @return string 
+     * @return string
      */
     public function getComment()
     {
@@ -137,7 +143,7 @@ class Chrono
     /**
      * Get date
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getDate()
     {
@@ -157,7 +163,7 @@ class Chrono
     /**
      * Get user
      *
-     * @return string 
+     * @return string
      */
     public function getUser()
     {
@@ -177,7 +183,7 @@ class Chrono
     /**
      * Get circuit
      *
-     * @return Chronos\ChronoAdminBundle\Entity\Circuit 
+     * @return Chronos\ChronoAdminBundle\Entity\Circuit
      */
     public function getCircuit()
     {
@@ -197,7 +203,7 @@ class Chrono
     /**
      * Get weather
      *
-     * @return Chronos\ChronoAdminBundle\Entity\Weather 
+     * @return Chronos\ChronoAdminBundle\Entity\Weather
      */
     public function getWeather()
     {

@@ -48,6 +48,8 @@ class Circuit
      */
     public $file;
 
+    private $fileName;
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -70,7 +72,7 @@ class Circuit
     protected function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-        return 'uploads/images';
+        return 'uploads/images/';
     }
 
     /**
@@ -80,7 +82,8 @@ class Circuit
     public function preUpload()
     {
         if (null !== $this->file) {
-            $this->path = $this->file->guessExtension();
+            $this->fileName = md5($this->file->getClientOriginalName() . time());
+            $this->path = $this->getUploadDir() . $this->fileName . '.' . $this->file->guessExtension();
         }
     }
 
@@ -97,7 +100,7 @@ class Circuit
         // you must throw an exception here if the file cannot be moved
         // so that the entity is not persisted to the database
         // which the UploadedFile move() method does
-        $this->file->move($this->getUploadRootDir(), $this->id . '.' . $this->file->guessExtension());
+        $this->file->move($this->getUploadRootDir(), $this->fileName . '.' . $this->file->guessExtension());
 
         unset($this->file);
     }
@@ -107,7 +110,7 @@ class Circuit
      */
     public function storeFilenameForRemove()
     {
-        $this->filenameForRemove = $this->getAbsolutePath();
+        $this->filenameForRemove = $this->path;
     }
 
     /**

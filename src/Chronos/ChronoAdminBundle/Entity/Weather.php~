@@ -26,15 +26,16 @@ class Weather
      * @ORM\OneToMany(targetEntity="Chrono", mappedBy="weather")
      */
     protected $chronos;
+
     public function __construct()
     {
         $this->chronos = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,7 +55,7 @@ class Weather
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -74,10 +75,15 @@ class Weather
     /**
      * Get chronos
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getChronos()
     {
         return $this->chronos;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

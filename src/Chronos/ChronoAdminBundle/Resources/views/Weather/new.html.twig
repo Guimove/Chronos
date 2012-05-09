@@ -1,21 +1,19 @@
 {% extends "ChronosChronoAdminBundle::layout.html.twig" %}
 
-{% block content_title %}Weather creation{% endblock %}
+{% block content_title %}Weather Creation{% endblock %}
+
+{% block home_title %}Weather Creation{% endblock %}
 
 {% block sub_content %}
 
 <form action="{{ path('weather_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('weather_index') }}">
+    <div class="form-actions">
+        <button type="submit" class="btn btn-success">Create</button>
+        <button type="reset" class="btn">Cancel</button>
+        <a href="{{ path('weather_index') }}" class="btn">
+            <i class="icon-list"></i>
             Back to the list
         </a>
-    </li>
-</ul>
+    </div>
 {% endblock %}

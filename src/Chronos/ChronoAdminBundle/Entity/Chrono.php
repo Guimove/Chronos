@@ -50,6 +50,12 @@ class Chrono
     protected $weather;
 
     /**
+     * @ORM\ManyToOne(targetEntity="RoadState", inversedBy="chronos")
+     * @ORM\JoinColumn(name="roadstate_id", referencedColumnName="id")
+     */
+    protected $roadstate;
+
+    /**
      * @ORM\Column(type="string")
      */
     protected $user;
@@ -202,5 +208,25 @@ class Chrono
     public function getWeather()
     {
         return $this->weather;
+    }
+
+    /**
+     * Set roadstate
+     *
+     * @param Chronos\ChronoAdminBundle\Entity\RoadState $roadstate
+     */
+    public function setRoadstate(\Chronos\ChronoAdminBundle\Entity\RoadState $roadstate)
+    {
+        $this->roadstate = $roadstate;
+    }
+
+    /**
+     * Get roadstate
+     *
+     * @return Chronos\ChronoAdminBundle\Entity\RoadState
+     */
+    public function getRoadstate()
+    {
+        return $this->roadstate;
     }
 }

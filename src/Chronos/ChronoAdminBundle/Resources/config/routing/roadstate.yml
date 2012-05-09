@@ -1,0 +1,30 @@
+roadstate:
+    pattern:  /
+    defaults: { _controller: "ChronosChronoAdminBundle:RoadState:index" }
+
+roadstate_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ChronosChronoAdminBundle:RoadState:show" }
+
+roadstate_new:
+    pattern:  /new
+    defaults: { _controller: "ChronosChronoAdminBundle:RoadState:new" }
+
+roadstate_create:
+    pattern:  /create
+    defaults: { _controller: "ChronosChronoAdminBundle:RoadState:create" }
+    requirements: { _method: post }
+
+roadstate_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ChronosChronoAdminBundle:RoadState:edit" }
+
+roadstate_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ChronosChronoAdminBundle:RoadState:update" }
+    requirements: { _method: post }
+
+roadstate_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ChronosChronoAdminBundle:RoadState:delete" }
+    requirements: { _method: post }

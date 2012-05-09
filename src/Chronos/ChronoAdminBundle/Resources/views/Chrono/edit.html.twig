@@ -2,6 +2,8 @@
 
 {% block content_title %}Chrono Edit{% endblock %}
 
+{% block home_title %}Chrono Edit{% endblock %}
+
 {% block sub_content %}
 
 <form class="form-horizontal" action="{{ path('chrono_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
@@ -13,7 +15,8 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('chrono_index') }}">
+        <a href="{{ path('circuit_index') }}" class="btn">
+            <i class="icon-list"></i>
             Back to the list
         </a>
     </li>

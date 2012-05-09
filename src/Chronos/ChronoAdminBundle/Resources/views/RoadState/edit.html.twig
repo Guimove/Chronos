@@ -1,21 +1,21 @@
 {% extends "ChronosChronoAdminBundle::layout.html.twig" %}
 
-{% block content_title %}Weather Edit{% endblock %}
+{% block content_title %}RaodState Edit{% endblock %}
 
-{% block home_title %}Weather Edit{% endblock %}
+{% block home_title %}RaodState Edit{% endblock %}
 
 {% block sub_content %}
 
-<form action="{{ path('weather_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<form action="{{ path('roadstate_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
 
     <div class="form-actions">
         <button type="submit" class="btn btn-success">Edit</button>
-        <a href="{{ path('weather_index') }}" class="btn">
+        <a href="{{ path('roadstate') }}" class="btn">
             <i class="icon-list"></i>
             Back to the list
         </a>
-        <form action="{{ path('weather_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('roadstate_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit" class="btn btn-danger"><i class="icon-fire icon-white"></i>
                 Delete
