@@ -6,5 +6,25 @@ weather_show:
     pattern:  /{id}/show
     defaults: { _controller: "ChronosChronoAdminBundle:Weather:show" }
 
+weather_new:
+    pattern:  /new
+    defaults: { _controller: "ChronosChronoAdminBundle:Weather:new" }
 
+weather_create:
+    pattern:  /create
+    defaults: { _controller: "ChronosChronoAdminBundle:Weather:create" }
+    requirements: { _method: post }
 
+weather_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ChronosChronoAdminBundle:Weather:edit" }
+
+weather_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ChronosChronoAdminBundle:Weather:update" }
+    requirements: { _method: post }
+
+weather_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ChronosChronoAdminBundle:Weather:delete" }
+    requirements: { _method: post }

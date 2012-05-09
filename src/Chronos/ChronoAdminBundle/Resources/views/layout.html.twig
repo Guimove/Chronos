@@ -9,9 +9,9 @@
                     'bundles/chronoschronoadmin/css/third-party/bootstrap.min.css'
                     'bundles/chronoschronoadmin/css/third-party/bootstrap-responsive.min.css'
                     'bundles/chronoschronoadmin/css/librariesOverrides.css'
-                    'bundles/chronoschronoadmin/css/style.css'
                     'bundles/chronoschronoadmin/css/third-party/jquery-ui.css'
                     'bundles/chronoschronoadmin/css/third-party/jquery.ui.ie.css'
+                    'bundles/chronoschronoadmin/css/style.css'
                     output='css/chrono.css'
                     filter='cssrewrite'
                     combine=true
@@ -72,7 +72,9 @@
                     <li class="nav-header">Gestion Chronos</li>
                     <li><a href="{{ path('chrono_index') }}">Liste des chronos</a></li>
                     <li><a href="{{ path('chrono_new') }}">Ajouter un chrono</a></li>
-
+                    <li class="nav-header">Gestion Météo</li>
+                    <li><a href="{{ path('weather_index') }}">Liste de type de météo</a></li>
+                    <li><a href="{{ path('weather_new') }}">Ajouter un type de météo</a></li>
                 </ul>
             </div>
             <!--/.well -->
