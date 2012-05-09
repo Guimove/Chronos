@@ -1,10 +1,24 @@
+ChronosSecurityBundle:
+    resource: "@ChronosSecurityBundle/Resources/config/routing.yml"
+    prefix:   /admin/
+
 ChronosChronoUserBundle:
     resource: "@ChronosChronoUserBundle/Resources/config/routing.yml"
     prefix:   /
 
 ChronosChronoAdminBundle:
     resource: "@ChronosChronoAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/
+
+login:
+    pattern:   /admin/login
+    defaults:  { _controller: ChronosSecurityBundle:Default:login }
+
+login_check:
+    pattern:   /admin/login_check
+
+logout:
+    pattern:   /admin/logout
 
 # Internal routing configuration to handle ESI
 #_internal:

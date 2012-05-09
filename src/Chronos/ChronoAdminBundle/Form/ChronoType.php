@@ -10,7 +10,7 @@ class ChronoType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('time')
+            ->add('time', 'text', array('attr' => array('placeholder' => 'Exemple : 00"00\'00')))
             ->add('bike')
             ->add('comment')
             ->add('date', 'date', array(

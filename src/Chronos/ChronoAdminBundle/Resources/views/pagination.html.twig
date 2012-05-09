@@ -1,0 +1,5 @@
+{% if pagerfanta is defined and pagerfanta.getNbPages > 1 %}
+    <div class="form-actions align-center">
+        {{ pagerfanta(pagerfanta, 'twitter_bootstrap_translated', pagerfanta_opts) }}
+    </div>
+{% endif %}

@@ -54,47 +54,63 @@
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="active"><a href="{{ path('homepage') }}">Home</a></li>
+                    <li class="dropdown" id="circuit">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#circuit">
+                            Circuits
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('circuit_index') }}">Liste des circuits</a></li>
+                            <li><a href="{{ path('circuit_new') }}">Ajouter un circuit</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="chrono">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#chronos">
+                            Chronos
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('chrono_index') }}">Liste des chronos</a></li>
+                            <li><a href="{{ path('chrono_new') }}">Ajouter un chrono</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="meteo">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#meteo">
+                            Météo
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('weather_index') }}">Liste de type de météo</a></li>
+                            <li><a href="{{ path('weather_new') }}">Ajouter un type de météo</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="roadstate">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#roadstate">
+                            Etat de la piste
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('roadstate') }}">Liste des états de piste</a></li>
+                            <li><a href="{{ path('roadstate_new') }}">Ajouter un état de piste</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <p class="navbar-text pull-right">Logged in as Administrator - <a href="/logout">Logout</a></p>
+                <p class="navbar-text pull-right">Logged in as {{ app.user.username }} - <a href="{{ path('logout') }}">Logout</a></p>
             </div>
             <!--/.nav-collapse -->
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span3">
-            <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                    <li class="nav-header">Gestion circuits</li>
-                    <li><a href="{{ path('circuit_index') }}">Liste des circuits</a></li>
-                    <li><a href="{{ path('circuit_new') }}">Ajouter un circuit</a></li>
-                    <li class="nav-header">Gestion Chronos</li>
-                    <li><a href="{{ path('chrono_index') }}">Liste des chronos</a></li>
-                    <li><a href="{{ path('chrono_new') }}">Ajouter un chrono</a></li>
-                    <li class="nav-header">Gestion Météo</li>
-                    <li><a href="{{ path('weather_index') }}">Liste de type de météo</a></li>
-                    <li><a href="{{ path('weather_new') }}">Ajouter un type de météo</a></li>
-                    <li class="nav-header">Gestion Etat de la Piste</li>
-                    <li><a href="{{ path('roadstate') }}">Liste des états de piste</a></li>
-                    <li><a href="{{ path('roadstate_new') }}">Ajouter un état de piste</a></li>
-                </ul>
-            </div>
-            <!--/.well -->
-        </div>
-        <!--/span-->
-        <div class="span9">
-            <div class="page-header">
-                <h1>{% block home_title 'Home' %}</h1>
-            </div>
-            {% block sub_content %}{% endblock %}
-        </div>
-        <!--/span-->
+<div class="container">
+    <div class="page-header">
+        <h1>{% block home_title 'Home' %}</h1>
     </div>
-    <!--/row-->
+    {% block sub_content %}{% endblock %}
     <hr />
     <footer>
         <p>&copy; {{ 'now'|date("Y") }} - Guimove</p>
     </footer>
 </div>
 {% endblock %}
+</body>
+</html>

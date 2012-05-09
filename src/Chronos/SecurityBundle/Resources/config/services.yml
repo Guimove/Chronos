@@ -1,0 +1,7 @@
+parameters:
+#    chronos_security.example.class: Chronos\SecurityBundle\Example
+
+services:
+#    chronos_security.example:
+#        class: %chronos_security.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

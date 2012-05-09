@@ -1,6 +1,6 @@
 homepage:
     pattern:  /
-    defaults: { _controller: ChronosChronoAdminBundle:Main:index }
+    defaults: { _controller: "ChronosChronoAdminBundle:Main:index" }
 
 ChronosChronoAdminBundle_circuit:
     resource: "@ChronosChronoAdminBundle/Resources/config/routing/circuit.yml"

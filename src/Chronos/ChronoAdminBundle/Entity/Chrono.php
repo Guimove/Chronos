@@ -28,7 +28,7 @@ class Chrono
     protected $bike;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     protected $comment;
 

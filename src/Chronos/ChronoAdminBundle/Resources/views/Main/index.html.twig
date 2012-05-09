@@ -2,77 +2,40 @@
 
 {% block content_title %}Homepage{% endblock %}
 
+{% block home_title %}Home <small>20 derniers chronos ajoutés :</small> {% endblock %}
+
 {% block sub_content %}
-<div class="hero-unit">
-    <h1>Hello, world!</h1>
-
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero
-        unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-
-    <p><a class="btn btn-primary btn-large">Learn more »</a></p>
-</div>
-<div class="row-fluid">
-    <div class="span4">
-        <h2>Heading</h2>
-
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui. </p>
-
-        <p><a href="#" class="btn">View details »</a></p>
-    </div>
-    <!--/span-->
-    <div class="span4">
-        <h2>Heading</h2>
-
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui. </p>
-
-        <p><a href="#" class="btn">View details »</a></p>
-    </div>
-    <!--/span-->
-    <div class="span4">
-        <h2>Heading</h2>
-
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui. </p>
-
-        <p><a href="#" class="btn">View details »</a></p>
-    </div>
-    <!--/span-->
-</div><!--/row-->
-<div class="row-fluid">
-    <div class="span4">
-        <h2>Heading</h2>
-
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui. </p>
-
-        <p><a href="#" class="btn">View details »</a></p>
-    </div>
-    <!--/span-->
-    <div class="span4">
-        <h2>Heading</h2>
-
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui. </p>
-
-        <p><a href="#" class="btn">View details »</a></p>
-    </div>
-    <!--/span-->
-    <div class="span4">
-        <h2>Heading</h2>
-
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-            Donec sed odio dui. </p>
-
-        <p><a href="#" class="btn">View details »</a></p>
-    </div>
-    <!--/span-->
-</div><!--/row-->
+<table class="records_list table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Circuit</th>
+        <th>Weather</th>
+        <th>Time</th>
+        <th>Bike</th>
+        <th>Comment</th>
+        <th>Date</th>
+        <th>User</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+    <tr>
+        <td><a href="{{ path('chrono_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+        <td>{{ entity.circuit }}</td>
+        <td>{{ entity.weather }}</td>
+        <td>{{ entity.time }}</td>
+        <td>{{ entity.bike }}</td>
+        <td>{{ entity.comment }}</td>
+        <td>{% if entity.date %}{{ entity.date|date('d/m/Y') }}{% endif%}</td>
+        <td>{{ entity.user }}</td>
+        <td>
+            <a rel="tooltip" title="Show entry" href="{{ path('chrono_show', { 'id': entity.id }) }}"><i class="icon-search"></i></a>
+            <a rel="tooltip" title="Edit entry" href="{{ path('chrono_edit', { 'id': entity.id }) }}"><i class="icon-pencil"></i></a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

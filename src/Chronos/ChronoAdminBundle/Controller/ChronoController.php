@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Chronos\ChronoAdminBundle\Entity\Chrono;
 use Chronos\ChronoAdminBundle\Form\ChronoType;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Exception\NotValidCurrentPageException;
 
 /**
  * Chrono controller.
@@ -21,10 +24,25 @@ class ChronoController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('ChronosChronoAdminBundle:Chrono')->findAll();
+        $query = $em->createQueryBuilder()
+            ->select('u')
+            ->from('Chronos\ChronoAdminBundle\Entity\Chrono', 'u');
+
+        $adapter = new DoctrineORMAdapter($query);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(20);
+        $request = $this->get('request');
+        $page = $request->query->get('page', 1);
+        try {
+            $pagerfanta->setCurrentPage($page);
+        } catch (NotValidCurrentPageException $e) {
+            throw new NotFoundHttpException();
+        }
+        $entities = $pagerfanta->getCurrentPageResults();
 
         return $this->render('ChronosChronoAdminBundle:Chrono:index.html.twig', array(
-            'entities' => $entities
+            'entities' => $entities,
+            'pagerfanta' => $pagerfanta
         ));
     }
 
@@ -45,7 +63,7 @@ class ChronoController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ChronosChronoAdminBundle:Chrono:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
 
         ));
@@ -58,11 +76,11 @@ class ChronoController extends Controller
     public function newAction()
     {
         $entity = new Chrono();
-        $form   = $this->createForm(new ChronoType(), $entity);
+        $form = $this->createForm(new ChronoType(), $entity);
 
         return $this->render('ChronosChronoAdminBundle:Chrono:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView()
+            'form' => $form->createView()
         ));
     }
 
@@ -72,9 +90,9 @@ class ChronoController extends Controller
      */
     public function createAction()
     {
-        $entity  = new Chrono();
+        $entity = new Chrono();
         $request = $this->getRequest();
-        $form    = $this->createForm(new ChronoType(), $entity);
+        $form = $this->createForm(new ChronoType(), $entity);
         $form->bindRequest($request);
 
         if ($form->isValid()) {
@@ -83,12 +101,11 @@ class ChronoController extends Controller
             $em->flush();
 
             return $this->redirect($this->generateUrl('chrono_show', array('id' => $entity->getId())));
-
         }
 
         return $this->render('ChronosChronoAdminBundle:Chrono:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView()
+            'form' => $form->createView()
         ));
     }
 
@@ -110,8 +127,8 @@ class ChronoController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ChronosChronoAdminBundle:Chrono:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -130,7 +147,7 @@ class ChronoController extends Controller
             throw $this->createNotFoundException('Unable to find Chrono entity.');
         }
 
-        $editForm   = $this->createForm(new ChronoType(), $entity);
+        $editForm = $this->createForm(new ChronoType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();
@@ -145,8 +162,8 @@ class ChronoController extends Controller
         }
 
         return $this->render('ChronosChronoAdminBundle:Chrono:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -181,7 +198,6 @@ class ChronoController extends Controller
     {
         return $this->createFormBuilder(array('id' => $id))
             ->add('id', 'hidden')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

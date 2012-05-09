@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Chronos\ChronoAdminBundle\Entity\Circuit;
 use Chronos\ChronoAdminBundle\Form\CircuitType;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Exception\NotValidCurrentPageException;
 
 /**
  * Circuit controller.
@@ -21,10 +24,25 @@ class CircuitController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('ChronosChronoAdminBundle:Circuit')->findAll();
+        $query = $em->createQueryBuilder()
+            ->select('u')
+            ->from('Chronos\ChronoAdminBundle\Entity\Circuit', 'u');
+
+        $adapter = new DoctrineORMAdapter($query);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(20);
+        $request = $this->get('request');
+        $page = $request->query->get('page', 1);
+        try {
+            $pagerfanta->setCurrentPage($page);
+        } catch (NotValidCurrentPageException $e) {
+            throw new NotFoundHttpException();
+        }
+        $entities = $pagerfanta->getCurrentPageResults();
 
         return $this->render('ChronosChronoAdminBundle:Circuit:index.html.twig', array(
-            'entities' => $entities
+            'entities' => $entities,
+            'pagerfanta' => $pagerfanta
         ));
     }
 

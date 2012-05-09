@@ -23,6 +23,11 @@ twig:
     form:
         resources:
             - 'ChronosChronoAdminBundle:Form:chrono.html.twig'
+    globals:
+        pagerfanta_opts:
+            prev_message: '&laquo;'
+            next_message: '&raquo;'
+            dots_message: '…'
 
 # Assetic Configuration
 assetic:
