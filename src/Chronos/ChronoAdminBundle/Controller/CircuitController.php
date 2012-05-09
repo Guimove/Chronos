@@ -24,9 +24,7 @@ class CircuitController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $query = $em->createQueryBuilder()
-            ->select('u')
-            ->from('Chronos\ChronoAdminBundle\Entity\Circuit', 'u');
+        $query = $em->getRepository('ChronosChronoAdminBundle:Circuit')->getAllCircuit();
 
         $adapter = new DoctrineORMAdapter($query);
         $pagerfanta = new Pagerfanta($adapter);

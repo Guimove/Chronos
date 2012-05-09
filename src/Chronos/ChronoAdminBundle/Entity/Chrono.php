@@ -5,7 +5,7 @@ namespace Chronos\ChronoAdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Chronos\ChronoAdminBundle\Repository\ChronoRepository")
  * @ORM\Table(name="chrono")
  */
 class Chrono

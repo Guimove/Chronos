@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Chronos\ChronoAdminBundle\Repository\CircuitRepository")
  * @ORM\Table(name="circuit")
  * @ORM\HasLifecycleCallbacks
  */
@@ -31,6 +31,12 @@ class Circuit
      * @Assert\NotBlank
      */
     protected $length;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @Assert\NotBlank
+     */
+    protected $asso;
 
     /**
      * @ORM\Column(type="string")
@@ -246,5 +252,25 @@ class Circuit
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * Set asso
+     *
+     * @param boolean $asso
+     */
+    public function setAsso($asso)
+    {
+        $this->asso = $asso;
+    }
+
+    /**
+     * Get asso
+     *
+     * @return boolean 
+     */
+    public function getAsso()
+    {
+        return $this->asso;
     }
 }

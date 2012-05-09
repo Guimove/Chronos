@@ -5,7 +5,7 @@ namespace Chronos\ChronoAdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Chronos\ChronoAdminBundle\Repository\ChronoRepository")
  * @ORM\Table(name="chrono")
  */
 class Chrono
@@ -28,7 +28,7 @@ class Chrono
     protected $bike;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     protected $comment;
 
@@ -51,9 +51,9 @@ class Chrono
 
     /**
      * @ORM\ManyToOne(targetEntity="RoadState", inversedBy="chronos")
-     * @ORM\JoinColumn(name="raodstate_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="roadstate_id", referencedColumnName="id")
      */
-    protected $raodstate;
+    protected $roadstate;
 
     /**
      * @ORM\Column(type="string")
@@ -208,5 +208,25 @@ class Chrono
     public function getWeather()
     {
         return $this->weather;
+    }
+
+    /**
+     * Set roadstate
+     *
+     * @param Chronos\ChronoAdminBundle\Entity\RoadState $roadstate
+     */
+    public function setRoadstate(\Chronos\ChronoAdminBundle\Entity\RoadState $roadstate)
+    {
+        $this->roadstate = $roadstate;
+    }
+
+    /**
+     * Get roadstate
+     *
+     * @return Chronos\ChronoAdminBundle\Entity\RoadState
+     */
+    public function getRoadstate()
+    {
+        return $this->roadstate;
     }
 }

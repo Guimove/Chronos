@@ -24,9 +24,7 @@ class ChronoController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $query = $em->createQueryBuilder()
-            ->select('u')
-            ->from('Chronos\ChronoAdminBundle\Entity\Chrono', 'u');
+        $query = $em->getRepository('ChronosChronoAdminBundle:Chrono')->getAllChronos();
 
         $adapter = new DoctrineORMAdapter($query);
         $pagerfanta = new Pagerfanta($adapter);

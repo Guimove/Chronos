@@ -30,11 +30,11 @@ class RoadState
     {
         $this->chronos = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,7 +54,7 @@ class RoadState
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -74,10 +74,15 @@ class RoadState
     /**
      * Get chronos
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getChronos()
     {
         return $this->chronos;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

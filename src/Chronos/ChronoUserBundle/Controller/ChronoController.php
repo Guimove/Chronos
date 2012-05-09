@@ -18,9 +18,10 @@ class ChronoController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()
+            ->getEntityManager();
 
-        $entities = $em->getRepository('ChronosChronoAdminBundle:Chrono')->findAll();
+        $entities = $em->getRepository('ChronosChronoAdminBundle:Chrono')->getOrderedChrono();
 
         return $this->render('ChronosChronoUserBundle:Chrono:index.html.twig', array(
             'entities' => $entities

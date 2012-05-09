@@ -14,6 +14,7 @@ class CircuitType extends AbstractType
             ->add('length')
             ->add('file')
             ->add('country')
+            ->add('asso')
         ;
     }
 

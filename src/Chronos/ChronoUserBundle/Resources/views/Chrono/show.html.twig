@@ -13,6 +13,14 @@
         <td>{{ entity.id }}</td>
     </tr>
     <tr>
+        <th>Circuit</th>
+        <td>{{ entity.circuit }}</td>
+    </tr>
+    <tr>
+        <th>Weather</th>
+        <td>{{ entity.weather }}</td>
+    </tr>
+    <tr>
         <th>Time</th>
         <td>{{ entity.time }}</td>
     </tr>
@@ -36,9 +44,9 @@
 </table>
 
 <div class="record_actions form-actions">
-        <a href="{{ path('usr_chrono') }}" class="btn">
-            <i class="icon-list"></i>
-            Back to the list
-        </a>
+    <a href="{{ path('usr_chrono') }}" class="btn">
+        <i class="icon-list"></i>
+        Back to the list
+    </a>
 </div>
 {% endblock %}
