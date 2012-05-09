@@ -1,4 +1,4 @@
-Group Project 2012 - Development
+MotoGP Chronos Management - Guimove
 ============
 
 ## INSTALLATION
