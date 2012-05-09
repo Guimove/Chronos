@@ -29,6 +29,7 @@
 # OS generated files #
 ######################
 .DS_Store?
+.DS_Store
 ehthumbs.db
 Icon?
 Thumbs.db
@@ -43,6 +44,7 @@ Thumbs.db
 /app/config/parameters.ini
 /web/css/*
 /web/js/*
+/web/uploads/images/*
 
 # Netbeans metadata files #
 ###########################
