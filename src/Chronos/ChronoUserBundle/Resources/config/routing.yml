@@ -1,0 +1,5 @@
+ChronosChronoUserBundle_chrono:
+    resource: "@ChronosChronoUserBundle/Resources/config/routing/chrono.yml"
+    prefix:   /
+
+

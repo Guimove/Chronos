@@ -1,0 +1,39 @@
+{% extends "ChronosChronoUserBundle::layout.html.twig" %}
+
+{% block content_title %}Chrono List{% endblock %}
+
+{% block home_title %}Chrono List{% endblock %}
+
+{% block sub_content %}
+
+<table class="records_list table table-striped">
+    <thead>
+    <tr>
+        <th>Circuit</th>
+        <th>Weather</th>
+        <th>Time</th>
+        <th>Bike</th>
+        <th>Comment</th>
+        <th>Date</th>
+        <th>User</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+    <tr>
+        <td>{{ entity.circuit }}</td>
+        <td>{{ entity.weather }}</td>
+        <td>{{ entity.time }}</td>
+        <td>{{ entity.bike }}</td>
+        <td>{{ entity.comment }}</td>
+        <td>{% if entity.date %}{{ entity.date|date('d/m/Y') }}{% endif%}</td>
+        <td>{{ entity.user }}</td>
+        <td>
+            <a rel="tooltip" title="Show entry" href="{{ path('usr_chrono_show', { 'id': entity.id }) }}"><i class="icon-search"></i></a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

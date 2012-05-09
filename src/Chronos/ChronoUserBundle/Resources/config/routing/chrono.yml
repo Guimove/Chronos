@@ -1,0 +1,10 @@
+usr_chrono:
+    pattern:  /
+    defaults: { _controller: "ChronosChronoUserBundle:Chrono:index" }
+
+usr_chrono_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ChronosChronoUserBundle:Chrono:show" }
+
+
+
