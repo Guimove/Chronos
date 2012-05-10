@@ -5,6 +5,7 @@
 {% block home_title %}Chrono List{% endblock %}
 
 {% block sub_content %}
+{% if entities is not empty %}
         {% set prev_circuit = '' %}
         {% for entity in entities %}
             {% if entity.circuit == prev_circuit%}
@@ -56,4 +57,7 @@
         {% endfor %}
         </tbody>
     </table>
+{%else%}
+    <h2>Il n'y a actuellement pas de chronos enregistrés, soyez patient.</h2>
+{%endif%}
 {% endblock %}

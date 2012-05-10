@@ -10,18 +10,17 @@
     {{ form_widget(edit_form) }}
 
     <div class="form-actions">
-        <button type="submit" class="btn btn-success">Edit</button>
         <a href="{{ path('weather_index') }}" class="btn">
             <i class="icon-list"></i>
             Back to the list
         </a>
-        <form action="{{ path('weather_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit" class="btn btn-danger"><i class="icon-fire icon-white"></i>
-                Delete
-            </button>
-        </form>
-    </div>
-
+        <button type="submit" class="btn btn-success">Edit</button>
 </form>
+{% include "ChronosChronoAdminBundle:Widgets:weatherDel.html.twig" %}
+<a class="btn btn-danger" href="#delModal" data-toggle="modal">
+    <i class="icon-fire icon-white"></i>
+    Delete
+</a>
+
+</div>
 {% endblock %}

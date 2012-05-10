@@ -135,8 +135,9 @@ class ChronoController extends Controller
      * Edits an existing Chrono entity.
      *
      */
-    public function updateAction($id)
+    public function updateAction($id, $error)
     {
+
         $em = $this->getDoctrine()->getEntityManager();
 
         $entity = $em->getRepository('ChronosChronoAdminBundle:Chrono')->find($id);
@@ -184,7 +185,6 @@ class ChronoController extends Controller
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Chrono entity.');
             }
-
             $em->remove($entity);
             $em->flush();
         }

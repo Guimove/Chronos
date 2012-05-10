@@ -38,20 +38,20 @@ class Chrono
     protected $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Circuit", inversedBy="chronos")
-     * @ORM\JoinColumn(name="circuit_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Circuit", inversedBy="chronos", cascade={"all"})
+     * @ORM\JoinColumn(name="circuit_id", referencedColumnName="id", onDelete="CASCADE", onUpdate="CASCADE" )
      */
     protected $circuit;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Weather", inversedBy="chronos")
-     * @ORM\JoinColumn(name="weather_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Weather", inversedBy="chronos", cascade={"all"})
+     * @ORM\JoinColumn(name="weather_id", referencedColumnName="id", onDelete="CASCADE", onUpdate="CASCADE" )
      */
     protected $weather;
 
     /**
-     * @ORM\ManyToOne(targetEntity="RoadState", inversedBy="chronos")
-     * @ORM\JoinColumn(name="roadstate_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="RoadState", inversedBy="chronos", cascade={"all"})
+     * @ORM\JoinColumn(name="roadstate_id", referencedColumnName="id", onDelete="CASCADE", onUpdate="CASCADE" )
      */
     protected $roadstate;
 

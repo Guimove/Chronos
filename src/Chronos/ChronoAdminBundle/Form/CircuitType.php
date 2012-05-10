@@ -14,8 +14,8 @@ class CircuitType extends AbstractType
             ->add('length')
             ->add('file')
             ->add('country')
-            ->add('asso')
-        ;
+            ->add('asso', 'choice', array(
+            'choices' => array('1' => 'Oui', '0' => 'Non')));
     }
 
     public function getName()

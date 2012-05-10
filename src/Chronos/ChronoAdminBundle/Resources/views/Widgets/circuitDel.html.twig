@@ -1,0 +1,18 @@
+<div class="modal fade" id="delModal">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Confirm Deletion</h3>
+    </div>
+    <div class="modal-body">
+        <p>Take care deleting this entity because it will delete all chronos linked !!!</p>
+    </div>
+    <div class="modal-footer">
+        <form action="{{ path('circuit_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" class="btn btn-danger"><i class="icon-fire icon-white"></i>
+                Delete
+            </button>
+        </form>
+        <a href="#" data-dismiss="modal" class="btn">Annuler</a>
+    </div>
+</div>

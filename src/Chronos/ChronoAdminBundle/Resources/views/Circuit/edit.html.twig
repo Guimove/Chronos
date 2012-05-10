@@ -8,20 +8,18 @@
 
 <form class="form-horizontal" action="{{ path('circuit_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
-
-    <div class="form-actions">
-        <button type="submit" class="btn btn-success">Edit</button>
-        <a href="{{ path('circuit_index') }}" class="btn">
-            <i class="icon-list"></i>
-            Back to the list
-        </a>
-        <form action="{{ path('circuit_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit" class="btn btn-danger"><i class="icon-fire icon-white"></i>
-                Delete
-            </button>
-        </form>
-    </div>
-
+<div class="form-actions">
+    <a href="{{ path('circuit_index') }}" class="btn">
+        <i class="icon-list"></i>
+        Back to the list
+    </a>
+    <button type="submit" class="btn btn-success">Edit</button>
 </form>
+    {% include "ChronosChronoAdminBundle:Widgets:circuitDel.html.twig" %}
+    <a class="btn btn-danger" href="#delModal" data-toggle="modal">
+        <i class="icon-fire icon-white"></i>
+        Delete
+    </a>
+
+</div>
 {% endblock %}

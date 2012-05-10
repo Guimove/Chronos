@@ -267,7 +267,7 @@ class Circuit
     /**
      * Get asso
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getAsso()
     {

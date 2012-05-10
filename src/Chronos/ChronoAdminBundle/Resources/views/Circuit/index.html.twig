@@ -12,7 +12,7 @@
 </a>
 
 <hr>
-
+{% if entities is not empty %}
 <table class="records_list table table-striped">
     <thead>
     <tr>
@@ -20,6 +20,7 @@
         <th>Name</th>
         <th>Length</th>
         <th>Country</th>
+        <th>Membre de l'asso?</th>
         <th>Picture</th>
         <th>Actions</th>
     </tr>
@@ -31,6 +32,13 @@
         <td>{{ entity.name }}</td>
         <td>{{ entity.length }}</td>
         <td>{{ entity.country }}</td>
+        <td>
+            {% if entity.asso %}
+            Oui
+            {% else %}
+            Non
+            {% endif %}
+        </td>
         <td><img src="{{ asset(entity.path) }}" width="150px" /></td>
         <td>
             <a rel="tooltip" title="Show entry" href="{{ path('circuit_show', { 'id': entity.id }) }}"><i class="icon-search"></i></a>
@@ -41,4 +49,7 @@
     </tbody>
 </table>
 {% include "ChronosChronoAdminBundle::pagination.html.twig" %}
+{%else%}
+<h2>Oops, their is nothing here ! Please add some circuits.</h2>
+{%endif%}
 {% endblock %}

@@ -4,4 +4,7 @@ $(document).ready(function () {
         firstDay: 1
     }).attr("readonly", "readonly")
     $('[rel=tooltip]').tooltip()
+    $('#delModal').modal({
+        show: false
+    })
 });
