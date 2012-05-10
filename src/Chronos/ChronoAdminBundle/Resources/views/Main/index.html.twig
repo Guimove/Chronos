@@ -5,6 +5,7 @@
 {% block home_title %}Home <small>20 derniers chronos ajoutés :</small> {% endblock %}
 
 {% block sub_content %}
+{% if entities is not empty %}
 <table class="records_list table table-striped">
     <thead>
     <tr>
@@ -38,4 +39,7 @@
     {% endfor %}
     </tbody>
 </table>
+{%else%}
+<h2>Oops, their is nothing here ! Please add some chronos.</h2>
+{%endif%}
 {% endblock %}
