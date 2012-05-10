@@ -1,7 +1,3 @@
-usr_chrono:
-    pattern:  /
-    defaults: { _controller: "ChronosChronoUserBundle:Chrono:indexFrench" }
-
 usr_chrono_other:
     pattern:  /other
     defaults: { _controller: "ChronosChronoUserBundle:Chrono:indexOther" }

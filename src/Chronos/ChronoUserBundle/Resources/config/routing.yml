@@ -1,5 +1,9 @@
-ChronosChronoUserBundle_chrono:
-    resource: "@ChronosChronoUserBundle/Resources/config/routing/chrono.yml"
+usr_chrono:
+    pattern:  /
+    defaults: { _controller: "ChronosChronoUserBundle:Chrono:indexFrench" }
+
+chrono:
+    resource: routing/chrono.yml
     prefix:   /
 
 

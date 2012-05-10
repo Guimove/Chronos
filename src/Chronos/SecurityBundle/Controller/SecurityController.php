@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class SecurityController extends Controller
 {
     /**
      * Log-in the user
@@ -26,7 +26,7 @@ class DefaultController extends Controller
                 $session->remove(SecurityContext::AUTHENTICATION_ERROR);
             }
 
-            return $this->render('ChronosSecurityBundle:Default:login.html.twig', array(
+            return $this->render('ChronosSecurityBundle:Security:login.html.twig', array(
                 // last username entered by the user
                 'last_username' => $session->get(SecurityContext::LAST_USERNAME),
                 'error'         => $error,
