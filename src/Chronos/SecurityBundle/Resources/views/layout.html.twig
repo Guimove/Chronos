@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block content_title '' %} | Chronos</title>
+
+        {% block stylesheets %}
+        {% stylesheets
+                        'bundles/chronoschronoadmin/css/third-party/normalize.css'
+                        'bundles/chronoschronoadmin/css/third-party/bootstrap.min.css'
+                        'bundles/chronoschronoadmin/css/third-party/bootstrap-responsive.min.css'
+                        'bundles/chronoschronoadmin/css/librariesOverrides.css'
+                        'bundles/chronoschronoadmin/css/third-party/jquery-ui.css'
+                        'bundles/chronoschronoadmin/css/third-party/jquery.ui.ie.css'
+                        'bundles/chronossecurity/css/style.css'
+                        output='css/login.css'
+                        combine=true
+        %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="screen" />
+        {% endstylesheets %}
+        {% endblock %}
+
+        {% block head_javascripts %}
+        <!--[if lte IE 8]>
+        <script type="text/javascript" src="{{ asset('bundles/chronoschronoadmin/js/third-party/html5-ie.js') }}"></script>
+        <![endif]-->
+        <script type="text/javascript" src="{{ asset('bundles/chronoschronoadmin/js/third-party/jquery-1.7.2.min.js') }}"></script>
+        {% endblock %}
+        {% block javascripts %}
+        {% javascripts
+                        'bundles/chronoschronoadmin/js/third-party/jquery-ui-1.8.20.min.js'
+                        'bundles/chronoschronoadmin/js/third-party/bootstrap.min.js'
+                        'bundles/chronoschronoadmin/js/main.js'
+                        output='js/chrono.js'
+                        combine=true
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

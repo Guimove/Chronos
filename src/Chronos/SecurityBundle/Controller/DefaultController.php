@@ -4,12 +4,18 @@ namespace Chronos\SecurityBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function loginAction()
+    /**
+     * Log-in the user
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function loginAction(Request $request)
         {
-            $request = $this->getRequest();
             $session = $request->getSession();
 
             // get the login error if there is one

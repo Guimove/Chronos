@@ -50,6 +50,24 @@
                 <span class="icon-bar"></span>
             </a>
             <a href="#" class="brand">Chronos</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li>
+                        <a href="{{ path('usr_chrono') }}">
+                            Circuits français
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('usr_chrono_other') }}">
+                            Circuits étrangers
+                            <b class="caret"></b>
+                        </a>
+                    </li>
+                </ul>
+                <p class="navbar-text pull-right"><a href="{{ path('login') }}">Login</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>

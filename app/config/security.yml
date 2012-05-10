@@ -12,7 +12,7 @@ security:
     providers:
         in_memory:
             users:
-                admin: { password: ac4860fc543f4f3b3ba853a0dbc32a76cbb0e41b, roles: [ 'ROLE_ADMIN' ] }
+                admin: { password: 4eb5f21dc655d5d50f05f0b390a21c3da0b52b10, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
         dev:

@@ -13,15 +13,31 @@ use Chronos\ChronoAdminBundle\Entity\Chrono;
 class ChronoController extends Controller
 {
     /**
-     * Lists all Chrono entities.
+     * Lists all French Chrono entities.
      *
      */
-    public function indexAction()
+    public function indexFrenchAction()
     {
         $em = $this->getDoctrine()
             ->getEntityManager();
 
-        $entities = $em->getRepository('ChronosChronoAdminBundle:Chrono')->getOrderedChrono();
+        $entities = $em->getRepository('ChronosChronoAdminBundle:Chrono')->getOrderedFrenchChrono();
+
+        return $this->render('ChronosChronoUserBundle:Chrono:index.html.twig', array(
+            'entities' => $entities
+        ));
+    }
+
+    /**
+     * Lists all Other Chrono entities.
+     *
+     */
+    public function indexOtherAction()
+    {
+        $em = $this->getDoctrine()
+            ->getEntityManager();
+
+        $entities = $em->getRepository('ChronosChronoAdminBundle:Chrono')->getOrderedOtherChrono();
 
         return $this->render('ChronosChronoUserBundle:Chrono:index.html.twig', array(
             'entities' => $entities

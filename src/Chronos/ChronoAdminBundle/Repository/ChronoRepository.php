@@ -12,13 +12,28 @@ use Doctrine\ORM\EntityRepository;
  */
 class ChronoRepository extends EntityRepository
 {
-    public function getOrderedChrono()
+    public function getOrderedFrenchChrono()
     {
         return $query = $this->createQueryBuilder('ch')
             ->leftJoin('ch.circuit', 'ci')
+            ->where('ci.country = :France')
             ->orderby('ch.asso DESC')
             ->orderby('ch.circuit')
             ->orderBy('ci.country')
+            ->setParameter('France', 'France')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getOrderedOtherChrono()
+    {
+        return $query = $this->createQueryBuilder('ch')
+            ->leftJoin('ch.circuit', 'ci')
+            ->where('ci.country != :France')
+            ->orderby('ch.asso DESC')
+            ->orderby('ch.circuit')
+            ->orderBy('ci.country')
+            ->setParameter('France', 'France')
             ->getQuery()
             ->getResult();
     }
