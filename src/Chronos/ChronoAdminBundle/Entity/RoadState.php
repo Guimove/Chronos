@@ -2,6 +2,7 @@
 
 namespace Chronos\ChronoAdminBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,6 +20,7 @@ class RoadState
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $name;
 

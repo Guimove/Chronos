@@ -6,7 +6,7 @@
 
 {% block sub_content %}
 
-<form action="{{ path('weather_create') }}" method="post" {{ form_enctype(form) }}>
+<form class="form-horizontal" action="{{ path('weather_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <div class="form-actions">
         <button type="submit" class="btn btn-success">Create</button>

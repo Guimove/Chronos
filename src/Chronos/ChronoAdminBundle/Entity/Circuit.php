@@ -50,7 +50,12 @@ class Circuit
     protected $chronos;
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\NotBlank()
+     * @Assert\Image(
+     *     maxSize = "5M",
+     *     mimeTypesMessage = "Please upload a valid Image",
+     *     maxSizeMessage = "Your file size is greather than 5Mo"
+     * )
      */
     public $file;
 
@@ -58,6 +63,7 @@ class Circuit
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
      */
     protected $path;
 

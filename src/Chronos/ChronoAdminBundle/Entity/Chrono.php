@@ -2,6 +2,7 @@
 
 namespace Chronos\ChronoAdminBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,21 +20,26 @@ class Chrono
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $time;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $bike;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     protected $comment;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
+     * @Assert\Date()
      */
     protected $date;
 
@@ -57,6 +63,7 @@ class Chrono
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $user;
 

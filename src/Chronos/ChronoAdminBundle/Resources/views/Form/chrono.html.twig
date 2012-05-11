@@ -25,16 +25,30 @@
 
 {% block field_row %}
 {% spaceless %}
-<div class="control-group {% if form_errors(form) %}error{% endif %}">
+<div class="control-group {% if form_errors(form) %}error alert alert-danger{% endif %}">
+    {% if form_errors(form) %}<span class="span">{% endif %}
     {{ form_label(form) }}
     <div class="controls">
         {{ form_widget(form) }}
     </div>
+    {% if form_errors(form) %}</span>{% endif %}
     {% if form.vars.errors is not empty %}
-    <div class="errors">
-        {{ form_errors(form) }}
-    </div>
+    {{ form_errors(form) }}
     {% endif %}
 </div>
 {% endspaceless %}
 {% endblock field_row %}
+
+{% block field_errors %}
+{% spaceless %}
+{% if errors|length > 0 %}
+<span class="help-inline errors span">
+    <ul class="error_list unstyled">
+        {% for error in errors %}
+        <li>{{ error.messageTemplate|trans(error.messageParameters, 'validators') }}</li>
+        {% endfor %}
+    </ul>
+</span>
+{% endif %}
+{% endspaceless %}
+{% endblock field_errors %}
