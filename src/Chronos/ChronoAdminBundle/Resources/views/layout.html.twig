@@ -7,11 +7,11 @@
     {% stylesheets
                     'bundles/chronoschronoadmin/css/third-party/normalize.css'
                     'bundles/chronoschronoadmin/css/third-party/bootstrap.min.css'
+                    'bundles/chronoschronoadmin/css/style.css'
                     'bundles/chronoschronoadmin/css/third-party/bootstrap-responsive.min.css'
                     'bundles/chronoschronoadmin/css/librariesOverrides.css'
                     'bundles/chronoschronoadmin/css/third-party/jquery-ui.css'
                     'bundles/chronoschronoadmin/css/third-party/jquery.ui.ie.css'
-                    'bundles/chronoschronoadmin/css/style.css'
                     output='css/admin.css'
                     filter='cssrewrite'
                     combine=true
@@ -95,7 +95,8 @@
                         </ul>
                     </li>
                 </ul>
-                <p class="navbar-text pull-right">Logged in as {{ app.user.username }} - <a href="{{ path('logout') }}">Logout</a></p>
+                <p class="navbar-text pull-right">Logged in as {{ app.user.username }} - <a href="{{ path('logout') }}">Logout</a>
+                </p>
             </div>
             <!--/.nav-collapse -->
         </div>
