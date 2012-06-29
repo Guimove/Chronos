@@ -14,16 +14,25 @@ class ChronoType extends AbstractType
             ->add('bike')
             ->add('comment')
             ->add('date', 'date', array(
-                                    'widget' => 'single_text',
-                                    'input' => 'datetime',
-                                    'format' => 'dd/MM/yyyy',
-                                    'attr' => array('class' => 'date'),
-                                    )
+                    'widget' => 'single_text',
+                    'input' => 'datetime',
+                    'format' => 'dd/MM/yyyy',
+                    'attr' => array('class' => 'date'),
+                    )
                 )
             ->add('user')
             ->add('circuit')
             ->add('weather')
-            ->add('roadstate');
+            ->add('roadstate')
+        ;
+    }
+
+    public function getDefaultOptions(array $options)
+    {
+        return array(
+            'validation_groups' => array('chrono_creation'),
+            'data_class' => 'Chronos\ChronoAdminBundle\Entity\Chrono',
+        );
     }
 
     public function getName()

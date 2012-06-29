@@ -52,12 +52,10 @@
         <i class="icon-pencil"></i>
         Edit
     </a>
-
-    <form action="{{ path('chrono_delete', { 'id': entity.id }) }}" method="post">
-        {{ form_widget(delete_form) }}
-        <button type="submit" class="btn btn-danger"><i class="icon-fire icon-white"></i>
-            Delete
-        </button>
-    </form>
+    {% include "ChronosChronoAdminBundle:Widgets:chronoDel.html.twig" %}
+    <a class="btn btn-danger" href="#delModal" data-toggle="modal">
+        <i class="icon-fire icon-white"></i>
+        Delete
+    </a>
 </div>
 {% endblock %}

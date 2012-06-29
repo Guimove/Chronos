@@ -20,26 +20,26 @@ class Chrono
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"chrono_creation"})
      */
     protected $time;
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"chrono_creation"})
      */
     protected $bike;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"chrono_creation"})
      */
     protected $comment;
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank()
-     * @Assert\Date()
+     * @Assert\NotBlank(groups={"chrono_creation"})
+     * @Assert\Date(groups={"chrono_creation"})
      */
     protected $date;
 
@@ -63,7 +63,7 @@ class Chrono
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"chrono_creation"})
      */
     protected $user;
 

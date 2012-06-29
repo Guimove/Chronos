@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Chronos\ChronoAdminBundle\Entity\Chrono;
 use Chronos\ChronoAdminBundle\Form\ChronoType;
 use Pagerfanta\Pagerfanta;
+use Symfony\Component\HttpFoundation\Request;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Exception\NotValidCurrentPageException;
 
@@ -86,10 +87,9 @@ class ChronoController extends Controller
      * Creates a new Chrono entity.
      *
      */
-    public function createAction()
+    public function createAction(Request $request)
     {
         $entity = new Chrono();
-        $request = $this->getRequest();
         $form = $this->createForm(new ChronoType(), $entity);
         $form->bindRequest($request);
 
@@ -135,7 +135,7 @@ class ChronoController extends Controller
      * Edits an existing Chrono entity.
      *
      */
-    public function updateAction($id, $error)
+    public function updateAction($id, $error = null)
     {
 
         $em = $this->getDoctrine()->getEntityManager();
