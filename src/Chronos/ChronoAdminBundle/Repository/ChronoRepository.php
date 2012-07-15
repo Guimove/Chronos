@@ -44,5 +44,3 @@ class ChronoRepository extends EntityRepository
             ->getQuery();
     }
 }
-
-

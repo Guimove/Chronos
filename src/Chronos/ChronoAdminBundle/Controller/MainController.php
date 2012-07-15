@@ -4,7 +4,6 @@ namespace Chronos\ChronoAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Chronos\ChronoAdminBundle\Entity\Chrono;
-use Chronos\ChronoAdminBundle\Form\ChronoType;
 
 class MainController extends Controller
 {

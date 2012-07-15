@@ -11,7 +11,7 @@ class SecurityController extends Controller
     /**
      * Log-in the user
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function loginAction(Request $request)

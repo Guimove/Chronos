@@ -83,7 +83,7 @@ class WeatherController extends Controller
             $em->flush();
 
             return $this->redirect($this->generateUrl('weather_show', array('id' => $entity->getId())));
-            
+
         }
 
         return $this->render('ChronosChronoAdminBundle:Weather:new.html.twig', array(

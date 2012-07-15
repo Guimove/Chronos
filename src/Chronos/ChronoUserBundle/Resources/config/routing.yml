@@ -5,5 +5,3 @@ usr_chrono:
 chrono:
     resource: routing/chrono.yml
     prefix:   /
-
-
